@@ -165,16 +165,6 @@ input,select{
   line-height:1.6;
 }
 
-.good{
-  color:#176b3a;
-  font-weight:600;
-}
-
-.warning{
-  color:#9a5b00;
-  font-weight:600;
-}
-
 @media(max-width:600px){
   .row{
     grid-template-columns:1fr;
@@ -195,6 +185,7 @@ input,select{
 </header>
 
 <nav>
+
   <button class="active" onclick="show('students',this)">
     👨‍🎓 Students
   </button>
@@ -206,91 +197,144 @@ input,select{
   <button onclick="show('admin',this)">
     ⚙️ Admin Number
   </button>
+
 </nav>
 
 <main>
 
 <section id="students">
+
   <div class="card">
+
     <h2>Students</h2>
+
     <div id="studentList"></div>
+
   </div>
+
 </section>
 
+
 <section id="add" class="hidden">
+
   <div class="card">
+
     <h2>Add Student</h2>
 
     <label>Student Name</label>
-    <input id="sname" placeholder="e.g. Muhammad Ahmed">
+
+    <input
+      id="sname"
+      placeholder="e.g. Muhammad Ahmed"
+    >
 
     <label>Father's Name</label>
-    <input id="fname" placeholder="e.g. Muhammad Ali">
+
+    <input
+      id="fname"
+      placeholder="e.g. Muhammad Ali"
+    >
 
     <label>Father's WhatsApp Number</label>
+
     <input
       id="phone"
       placeholder="e.g. 03001234567"
       inputmode="tel"
     >
 
-    <button class="btn primary" onclick="addStudent()">
+    <button
+      class="btn primary"
+      onclick="addStudent()"
+    >
       Save Student
     </button>
 
     <p id="addMsg" class="muted"></p>
+
   </div>
+
 </section>
 
+
 <section id="admin" class="hidden">
+
   <div class="card">
+
     <h2>Admin WhatsApp Number</h2>
 
     <label>Number</label>
+
     <input
       id="adminPhone"
       placeholder="03XXXXXXXXX"
       inputmode="tel"
     >
 
-    <button class="btn primary" onclick="saveAdmin()">
+    <button
+      class="btn primary"
+      onclick="saveAdmin()"
+    >
       Save Number
     </button>
 
     <p id="adminMsg" class="muted"></p>
+
   </div>
+
 </section>
 
+
 <section id="progress" class="hidden">
+
   <div class="card">
 
     <h2 id="progressTitle"></h2>
 
-    <div class="muted" id="progressFather"></div>
+    <div
+      class="muted"
+      id="progressFather"
+    ></div>
+
 
     <label>Sabaq</label>
 
     <div class="row">
+
       <div>
+
         <input
           id="sabaqLines"
           type="number"
           min="0"
           placeholder="Lines"
         >
+
       </div>
 
       <div>
+
         <select id="sabaqStatus">
-          <option value="done">Sunaya</option>
-          <option value="none">Nahi Sunaya</option>
+
+          <option value="done">
+            Sunaya
+          </option>
+
+          <option value="none">
+            Nahi Sunaya
+          </option>
+
         </select>
+
       </div>
+
     </div>
+
 
     <label>Sabqi</label>
 
     <div class="row">
+
       <input
         id="sabqiPara"
         type="number"
@@ -304,16 +348,26 @@ input,select{
         min="1"
         placeholder="Ruku"
       >
+
     </div>
 
     <select id="sabqiStatus">
-      <option value="done">Sunaya</option>
-      <option value="none">Nahi Sunaya</option>
+
+      <option value="done">
+        Sunaya
+      </option>
+
+      <option value="none">
+        Nahi Sunaya
+      </option>
+
     </select>
+
 
     <label>Manzil</label>
 
     <div class="row">
+
       <input
         id="manzilPara"
         type="number"
@@ -327,69 +381,252 @@ input,select{
         min="1"
         placeholder="Ruku"
       >
+
     </div>
 
     <select id="manzilStatus">
-      <option value="done">Sunayi</option>
-      <option value="none">Nahi Sunayi</option>
+
+      <option value="done">
+        Sunayi
+      </option>
+
+      <option value="none">
+        Nahi Sunayi
+      </option>
+
     </select>
 
-    <label>Kal kitni namazen parhin?</label>
+
+    <label>
+      Kal kitni namazen parhin?
+    </label>
 
     <select id="prayers">
-      <option value="5">5 namazen</option>
-      <option value="4">4 namazen</option>
-      <option value="3">3 namazen</option>
-      <option value="2">2 namazen</option>
-      <option value="1">1 namaz</option>
-      <option value="0">Koi namaz nahi</option>
+
+      <option value="5">
+        5 namazen
+      </option>
+
+      <option value="4">
+        4 namazen
+      </option>
+
+      <option value="3">
+        3 namazen
+      </option>
+
+      <option value="2">
+        2 namazen
+      </option>
+
+      <option value="1">
+        1 namaz
+      </option>
+
+      <option value="0">
+        Koi namaz nahi
+      </option>
+
     </select>
 
-    <label>Madrasay mein kis waqt pohancha?</label>
 
-    <input id="arrivalTime" type="time">
+    <label>
+      Madrasay mein kis waqt pohancha?
+    </label>
 
-    <label>Extra complaint (optional)</label>
+    <input
+      id="arrivalTime"
+      type="time"
+    >
+
+
+    <label>
+      Extra complaint (optional)
+    </label>
 
     <input
       id="complaint"
       placeholder="e.g. Aaj waqt zaya kiya aur mazaaq kiya."
     >
 
-    <button class="btn primary" onclick="generate()">
+
+    <button
+      class="btn primary"
+      onclick="generate()"
+    >
       Generate WhatsApp Message
     </button>
+
 
     <div id="output" class="hidden">
 
       <h3>Message</h3>
 
-      <div id="message" class="message"></div>
+      <div
+        id="message"
+        class="message"
+      ></div>
 
-      <button class="btn primary" onclick="openWhatsApp()">
+
+      <button
+        class="btn primary"
+        onclick="openWhatsApp()"
+      >
         Open WhatsApp
       </button>
 
-      <button class="btn secondary" onclick="copyMessage()">
+
+      <button
+        class="btn secondary"
+        onclick="copyMessage()"
+      >
         Copy Message
       </button>
 
     </div>
 
-    <button class="btn secondary" onclick="backStudents()">
+
+    <button
+      class="btn secondary"
+      onclick="backStudents()"
+    >
       ← Back to Students
     </button>
 
-    <button class="btn danger" onclick="deleteStudent()">
+
+    <button
+      class="btn danger"
+      onclick="deleteStudent()"
+    >
       🗑️ Delete Student
     </button>
 
   </div>
+
 </section>
 
 </main>
 
+
 <script>
+
+/* =====================================================
+   TEMPORARY ACCESS LOCK
+   =====================================================
+
+   Change this to false later when you want the
+   application available again.
+
+   IMPORTANT:
+   This does NOT touch localStorage or delete students.
+   ===================================================== */
+
+const TEMPORARY_LOCK = true;
+
+
+function showTemporaryLock(){
+
+  document.body.innerHTML = '';
+
+  document.body.style.margin = '0';
+  document.body.style.background = '#f4f6f8';
+  document.body.style.fontFamily = 'Arial, sans-serif';
+
+  const overlay =
+    document.createElement('div');
+
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.background = '#f4f6f8';
+  overlay.style.padding = '20px';
+
+  const box =
+    document.createElement('div');
+
+  box.style.background = 'white';
+  box.style.maxWidth = '420px';
+  box.style.width = '100%';
+  box.style.padding = '28px';
+  box.style.borderRadius = '16px';
+  box.style.textAlign = 'center';
+  box.style.boxShadow =
+    '0 4px 20px rgba(0,0,0,.12)';
+
+  box.innerHTML = `
+
+    <h2 style="margin-top:0;">
+      Access Temporarily Unavailable
+    </h2>
+
+    <p style="color:#68747d;line-height:1.6;">
+      This software is currently unavailable.
+      Please try again later.
+    </p>
+
+    <button
+      id="lockOkButton"
+      style="
+        border:0;
+        background:#123b2a;
+        color:white;
+        padding:12px 30px;
+        border-radius:9px;
+        font-weight:bold;
+        cursor:pointer;
+        font-size:15px;
+      "
+    >
+      OK
+    </button>
+
+  `;
+
+  overlay.appendChild(box);
+
+  document.body.appendChild(overlay);
+
+
+  document
+    .getElementById('lockOkButton')
+    .onclick = function(){
+
+      /*
+        First attempt to close the browser tab.
+        Browsers may block this for normally opened tabs.
+      */
+
+      window.open('', '_self');
+      window.close();
+
+
+      /*
+        If the browser refuses to close the tab,
+        replace the page with a blank screen.
+      */
+
+      setTimeout(function(){
+
+        document.body.innerHTML = '';
+
+        document.body.style.background =
+          '#ffffff';
+
+        document.title =
+          'Access Unavailable';
+
+      },100);
+
+    };
+
+}
+
+
+/* =====================================================
+   NORMAL APPLICATION
+   ===================================================== */
 
 const KEY = 'spm_data_v1';
 
@@ -401,38 +638,57 @@ let data = JSON.parse(
 let selected = null;
 let currentMessage = '';
 
+
 function save(){
-  localStorage.setItem(KEY, JSON.stringify(data));
+
+  localStorage.setItem(
+    KEY,
+    JSON.stringify(data)
+  );
+
 }
+
 
 function show(id,btn){
 
   document
     .querySelectorAll('main section')
-    .forEach(x => x.classList.add('hidden'));
+    .forEach(
+      x => x.classList.add('hidden')
+    );
 
   document
     .getElementById(id)
     .classList.remove('hidden');
 
+
   if(btn){
 
     document
       .querySelectorAll('nav button')
-      .forEach(x => x.classList.remove('active'));
+      .forEach(
+        x => x.classList.remove('active')
+      );
 
     btn.classList.add('active');
+
   }
 
+
   if(id === 'students'){
+
     render();
+
   }
+
 }
+
 
 function render(){
 
   const box =
     document.getElementById('studentList');
+
 
   if(!data.students.length){
 
@@ -440,7 +696,9 @@ function render(){
       '<p class="muted">No students yet. Add your first student.</p>';
 
     return;
+
   }
+
 
   box.innerHTML =
     data.students.map(s => `
@@ -469,61 +727,96 @@ function render(){
       </div>
 
     `).join('');
+
 }
+
 
 function addStudent(){
 
   const name =
-    document.getElementById('sname')
-      .value.trim();
+    document
+      .getElementById('sname')
+      .value
+      .trim();
+
 
   const father =
-    document.getElementById('fname')
-      .value.trim();
+    document
+      .getElementById('fname')
+      .value
+      .trim();
+
 
   const phone =
     clean(
-      document.getElementById('phone')
+      document
+        .getElementById('phone')
         .value
     );
 
+
   if(!name || !father || !phone){
 
-    document.getElementById('addMsg')
+    document
+      .getElementById('addMsg')
       .textContent =
       'Please fill all fields.';
 
     return;
+
   }
+
 
   data.students.push({
 
-    id: Date.now().toString(),
+    id:
+      Date.now().toString(),
 
-    name: name,
+    name:
+      name,
 
-    father: father,
+    father:
+      father,
 
-    phone: phone
+    phone:
+      phone
 
   });
 
+
   save();
 
-  document.getElementById('sname').value = '';
-  document.getElementById('fname').value = '';
-  document.getElementById('phone').value = '';
 
-  document.getElementById('addMsg')
+  document
+    .getElementById('sname')
+    .value = '';
+
+  document
+    .getElementById('fname')
+    .value = '';
+
+  document
+    .getElementById('phone')
+    .value = '';
+
+
+  document
+    .getElementById('addMsg')
     .textContent =
     'Student saved successfully.';
 
+
   render();
+
 }
 
+
 function clean(v){
+
   return v.replace(/\D/g,'');
+
 }
+
 
 function openStudent(id){
 
@@ -532,68 +825,96 @@ function openStudent(id){
       s => s.id === id
     );
 
+
   if(!selected) return;
 
-  document.getElementById('progressTitle')
+
+  document
+    .getElementById('progressTitle')
     .textContent =
     selected.name;
 
-  document.getElementById('progressFather')
+
+  document
+    .getElementById('progressFather')
     .textContent =
     'Father: ' +
     selected.father +
     ' • ' +
     selected.phone;
 
-  document.getElementById('sabaqLines')
+
+  document
+    .getElementById('sabaqLines')
     .value = '';
 
-  document.getElementById('sabqiPara')
+  document
+    .getElementById('sabqiPara')
     .value = '';
 
-  document.getElementById('sabqiRuku')
+  document
+    .getElementById('sabqiRuku')
     .value = '';
 
-  document.getElementById('manzilPara')
+  document
+    .getElementById('manzilPara')
     .value = '';
 
-  document.getElementById('manzilRuku')
+  document
+    .getElementById('manzilRuku')
     .value = '';
 
-  document.getElementById('complaint')
+  document
+    .getElementById('complaint')
     .value = '';
 
-  document.getElementById('arrivalTime')
+  document
+    .getElementById('arrivalTime')
     .value = '';
 
-  document.getElementById('prayers')
+  document
+    .getElementById('prayers')
     .value = '5';
 
-  document.getElementById('sabaqStatus')
+
+  document
+    .getElementById('sabaqStatus')
     .value = 'done';
 
-  document.getElementById('sabqiStatus')
+  document
+    .getElementById('sabqiStatus')
     .value = 'done';
 
-  document.getElementById('manzilStatus')
+  document
+    .getElementById('manzilStatus')
     .value = 'done';
 
-  document.getElementById('output')
+
+  document
+    .getElementById('output')
     .classList.add('hidden');
+
 
   document
     .querySelectorAll('main section')
-    .forEach(x => x.classList.add('hidden'));
+    .forEach(
+      x => x.classList.add('hidden')
+    );
 
-  document.getElementById('progress')
+
+  document
+    .getElementById('progress')
     .classList.remove('hidden');
+
 }
+
 
 function deleteStudent(){
 
   if(!selected){
     return;
   }
+
 
   const confirmed =
     confirm(
@@ -602,44 +923,60 @@ function deleteStudent(){
       '? This cannot be undone.'
     );
 
+
   if(!confirmed){
     return;
   }
+
 
   data.students =
     data.students.filter(
       s => s.id !== selected.id
     );
 
+
   save();
 
+
   selected = null;
+
   currentMessage = '';
 
-  document.getElementById('output')
+
+  document
+    .getElementById('output')
     .classList.add('hidden');
 
+
   show('students');
+
 }
+
 
 function formatTime(time){
 
   if(!time) return '';
 
+
   const parts =
     time.split(':');
+
 
   let hour =
     parseInt(parts[0]);
 
+
   const minute =
     parts[1];
+
 
   const ampm =
     hour >= 12 ? 'PM' : 'AM';
 
+
   hour =
     hour % 12 || 12;
+
 
   return (
     hour +
@@ -648,30 +985,41 @@ function formatTime(time){
     ' ' +
     ampm
   );
+
 }
+
 
 function arrivalIsLate(time){
 
   if(!time) return true;
 
+
   const parts =
     time.split(':');
+
 
   const hour =
     parseInt(parts[0]);
 
+
   const minute =
     parseInt(parts[1]);
+
 
   const totalMinutes =
     hour * 60 + minute;
 
+
   return totalMinutes > 570;
+
 }
+
 
 function generate(){
 
-  const d = new Date();
+  const d =
+    new Date();
+
 
   const date =
     d.toLocaleDateString(
@@ -683,36 +1031,49 @@ function generate(){
       }
     );
 
+
   const sabaqDone =
-    document.getElementById('sabaqStatus')
+    document
+      .getElementById('sabaqStatus')
       .value === 'done';
+
 
   const sabqiDone =
-    document.getElementById('sabqiStatus')
+    document
+      .getElementById('sabqiStatus')
       .value === 'done';
 
+
   const manzilDone =
-    document.getElementById('manzilStatus')
+    document
+      .getElementById('manzilStatus')
       .value === 'done';
+
 
   const prayerCount =
     parseInt(
-      document.getElementById('prayers')
+      document
+        .getElementById('prayers')
         .value
     );
 
+
   const arrival =
-    document.getElementById('arrivalTime')
+    document
+      .getElementById('arrivalTime')
       .value;
+
 
   let msg =
     `Assalam-o-Alaikum. Aap ke bete ${selected.name} ne aaj ${date} ko `;
+
 
   if(sabaqDone){
 
     msg +=
       `${
-        document.getElementById('sabaqLines')
+        document
+          .getElementById('sabaqLines')
           .value || '0'
       } lines sabaq ki sunayi`;
 
@@ -720,18 +1081,23 @@ function generate(){
 
     msg +=
       'sabaq nahi sunaya';
+
   }
 
+
   msg += ', ';
+
 
   if(sabqiDone){
 
     msg +=
       `Para ${
-        document.getElementById('sabqiPara')
+        document
+          .getElementById('sabqiPara')
           .value || '—'
       } ke ${
-        document.getElementById('sabqiRuku')
+        document
+          .getElementById('sabqiRuku')
           .value || '—'
       } ruku sabqi mein sunaye`;
 
@@ -739,18 +1105,23 @@ function generate(){
 
     msg +=
       'sabqi nahi sunaya';
+
   }
 
+
   msg += ', aur ';
+
 
   if(manzilDone){
 
     msg +=
       `Para ${
-        document.getElementById('manzilPara')
+        document
+          .getElementById('manzilPara')
           .value || '—'
       } ke ${
-        document.getElementById('manzilRuku')
+        document
+          .getElementById('manzilRuku')
           .value || '—'
       } ruku manzil mein sunayi`;
 
@@ -758,9 +1129,12 @@ function generate(){
 
     msg +=
       'manzil nahi sunayi';
+
   }
 
+
   msg += '. ';
+
 
   if(prayerCount === 5){
 
@@ -791,7 +1165,9 @@ function generate(){
 
     msg +=
       'Afsoos, kal is ne koi namaz nahi parhi.';
+
   }
+
 
   if(arrival){
 
@@ -799,72 +1175,101 @@ function generate(){
       ` Madrasay mein ${
         formatTime(arrival)
       } par pohancha.`;
+
   }
+
 
   const incompleteProgress =
     !sabaqDone ||
     !sabqiDone ||
     !manzilDone;
 
+
   const lessThanFive =
     prayerCount < 5;
 
+
   const late =
     arrivalIsLate(arrival);
+
 
   const needsAttention =
     incompleteProgress ||
     lessThanFive ||
     late;
 
+
   if(needsAttention){
 
     msg +=
       ' Apne bachay par dehaan dein, meherbani farma kar.';
+
   }
 
+
   const extra =
-    document.getElementById('complaint')
-      .value.trim();
+    document
+      .getElementById('complaint')
+      .value
+      .trim();
+
 
   if(extra){
 
     msg +=
       ' ' + extra;
+
   }
 
-  currentMessage = msg;
 
-  document.getElementById('message')
+  currentMessage =
+    msg;
+
+
+  document
+    .getElementById('message')
     .textContent =
     msg;
 
-  document.getElementById('output')
-    .classList.remove('hidden');
+
+  document
+    .getElementById('output')
+    .classList
+    .remove('hidden');
+
 }
+
 
 function openWhatsApp(){
 
   let p =
     selected.phone;
 
+
   if(p.startsWith('0')){
 
     p =
       '92' +
       p.slice(1);
+
   }
+
 
   window.open(
 
     'https://wa.me/' +
     p +
     '?text=' +
-    encodeURIComponent(currentMessage),
+    encodeURIComponent(
+      currentMessage
+    ),
 
     '_blank'
+
   );
+
 }
+
 
 function copyMessage(){
 
@@ -884,27 +1289,37 @@ function copyMessage(){
       );
 
     });
+
 }
+
 
 function saveAdmin(){
 
   data.admin =
     clean(
-      document.getElementById('adminPhone')
+      document
+        .getElementById('adminPhone')
         .value
     );
 
+
   save();
 
-  document.getElementById('adminMsg')
+
+  document
+    .getElementById('adminMsg')
     .textContent =
     'Admin number saved.';
+
 }
+
 
 function backStudents(){
 
   show('students');
+
 }
+
 
 function esc(s){
 
@@ -920,14 +1335,30 @@ function esc(s){
       "'":'&#39;'
 
     }[m])
+
   );
+
 }
 
-document.getElementById('adminPhone')
-  .value =
-  data.admin || '';
 
-render();
+/* =====================================================
+   START APP
+   ===================================================== */
+
+if(TEMPORARY_LOCK){
+
+  showTemporaryLock();
+
+}else{
+
+  document
+    .getElementById('adminPhone')
+    .value =
+    data.admin || '';
+
+  render();
+
+}
 
 </script>
 
